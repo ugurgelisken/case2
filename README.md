@@ -10,4 +10,4 @@ For generate new employes data
 
 `node .\mock_api\generate_mock_data.js`
 
-![alt text]("https://github.com/ugurgelisken/case2/blob/master/case-2.gif" Case 2 network result")
+![alt text](https://github.com/ugurgelisken/case2/blob/master/case-2.gif "Case 2 network result")
