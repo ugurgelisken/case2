@@ -5,6 +5,7 @@ import { getEmployes } from "../services/employes.service";
 import { setData } from "../store/employes.store";
 
 const Employes = () => {
+  
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.employes);
 
@@ -15,13 +16,13 @@ const Employes = () => {
 
   useEffect(() => {
     document.title = `Employes`;
+    dispatch(setData([]));
     _getEmployes();
     return () => {};
   }, []);
 
   return (
-    <div className="bg-white min-h-[800px] h-[calc(100vh-120px)]">
-      <div className="overflow-x-auto w-full">
+    <div className="bg-white min-h-[800px]">
         <table className="table w-full">
           <thead>
             <tr>
@@ -47,6 +48,9 @@ const Employes = () => {
                       </label>
                     </th>
                     <td>
+                      <p>{item.id}</p>
+                    </td>
+                    <td>
                       <div className="w-48 h-48">
                         <img loading="lazy" src={item.avatar} alt={item.name} className="h-full"/>
                       </div>
@@ -61,18 +65,8 @@ const Employes = () => {
                 );
               })}
           </tbody>
-          <tfoot>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </tfoot>
         </table>
       </div>
-    </div>
   );
 };
 
